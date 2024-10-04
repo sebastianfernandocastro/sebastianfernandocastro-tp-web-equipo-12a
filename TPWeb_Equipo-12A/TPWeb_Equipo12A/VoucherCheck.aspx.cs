@@ -22,9 +22,9 @@ namespace TPWeb_Equipo12A
 
             VoucherNegocio voucher = new VoucherNegocio();
 
-            if(voucher.buscar(voucherIngresado))
+            if (voucher.buscar(voucherIngresado))
             {
-                Response.Redirect("RegisterForm.aspx");
+                Response.Redirect("SelectGift.aspx?voucher=" + voucherIngresado);
             }
             else
             {

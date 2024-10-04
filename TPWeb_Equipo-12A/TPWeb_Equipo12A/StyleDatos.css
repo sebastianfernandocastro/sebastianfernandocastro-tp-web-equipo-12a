@@ -2,13 +2,15 @@
 }
 
 .cajaDatos {
-    width: 800px;
-    height: 400px;
+    width: var(--width);
+    height: var(--height);
     border: 1px solid gray;
     border-radius: 10px;
     padding: 20px;
-    display: grid;
-    gap: 5px;
+    margin-left: 50px;
+}
+.cajaDatos label{
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 .cajaDatos table {
@@ -19,6 +21,23 @@
     padding: 0px 10px 0px 0px;
 }
 
+.cajaDatos img{
+    width: 100px;
+    height: 180px;
+    margin-bottom:5px;
+}
+
 .tdSize{
     width:50%;
+}
+
+.nombre {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.descripcion{
+    font-size: 13px;
+    text-align: left;
+
 }

@@ -70,6 +70,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="RegisterForm.aspx" />
+    <Content Include="SelectGift.aspx" />
     <Content Include="StyleDatos.css" />
     <Content Include="StyleVoucher.css" />
     <Content Include="VoucherCheck.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="RegisterForm.aspx.designer.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SelectGift.aspx.cs">
+      <DependentUpon>SelectGift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectGift.aspx.designer.cs">
+      <DependentUpon>SelectGift.aspx</DependentUpon>
     </Compile>
     <Compile Include="VoucherCheck.aspx.cs">
       <DependentUpon>VoucherCheck.aspx</DependentUpon>

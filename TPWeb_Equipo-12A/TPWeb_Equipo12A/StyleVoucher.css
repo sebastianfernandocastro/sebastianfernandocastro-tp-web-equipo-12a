@@ -8,6 +8,7 @@
     background-color: white;
     height: 100vh;
     flex-direction: column;
+    align-content: center;
 }
 
 .header {
