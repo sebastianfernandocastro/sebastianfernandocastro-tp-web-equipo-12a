@@ -1,0 +1,24 @@
+﻿body {
+}
+
+.cajaDatos {
+    width: 800px;
+    height: 400px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 20px;
+    display: grid;
+    gap: 5px;
+}
+
+.cajaDatos table {
+    padding: 20px;
+}
+
+.cajaDatos td{
+    padding: 0px 10px 0px 0px;
+}
+
+.tdSize{
+    width:50%;
+}
