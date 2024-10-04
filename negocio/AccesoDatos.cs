@@ -25,7 +25,7 @@ namespace negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=PROMOS_DB; integrated security=true");
             // Le digo a donde me quiero conectar
             comando = new SqlCommand(); // creo la instancia de comando
             comando.Connection = conexion; // le digo que se contecte, donde? Lo que esta guardado en conexion
