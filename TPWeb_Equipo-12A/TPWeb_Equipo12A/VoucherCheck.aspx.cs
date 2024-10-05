@@ -22,13 +22,13 @@ namespace TPWeb_Equipo12A
 
             VoucherNegocio voucher = new VoucherNegocio();
 
-            if (voucher.buscar(voucherIngresado))
+            if (voucher.buscar(voucherIngresado) && !voucher.usado(voucherIngresado))
             {
                 Response.Redirect("SelectGift.aspx?voucher=" + voucherIngresado);
             }
             else
             {
-                script = "alert('" + "El voucher es incorrecto." + "');";
+                script = "alert('" + "El voucher es incorrecto o esta utilizado." + "');";
                 txbVoucher.Text = string.Empty;
             }
 

@@ -12,7 +12,6 @@ namespace TPWeb_Equipo12A
     public partial class SelectGift : System.Web.UI.Page
     {
         private string voucher;
-        private int articulo;
         protected void Page_Load(object sender, EventArgs e)
         {
             voucher = Request.QueryString["voucher"];
@@ -35,25 +34,23 @@ namespace TPWeb_Equipo12A
             lblDescrpcionProducto2.Text = articulos[1].Descripcion;
             lblNombreProducto3.Text = articulos[2].Nombre;
             lblDescrpcionProducto3.Text = articulos[2].Descripcion;
-
         }
 
         protected void btnProducto1_Click(object sender, EventArgs e)
         {
-            articulo = 1;
-            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "+idArticulo" + articulo);
+
+            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "&idArticulo=" + 1);
+
         }
 
         protected void btnProducto2_Click(object sender, EventArgs e)
         {
-            articulo = 2;
-            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "+idArticulo" + articulo);
+            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "&idArticulo=" + 2);
         }
 
         protected void btnProducto3_Click(object sender, EventArgs e)
         {
-            articulo = 3;
-            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "+idArticulo" + articulo);
+            Response.Redirect("RegisterForm.aspx?voucher=" + voucher + "&idArticulo=" + 3);
         }
     }
 }

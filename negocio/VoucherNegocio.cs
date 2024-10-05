@@ -1,6 +1,7 @@
 ﻿using dominio;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,50 @@ namespace negocio
                 datos.CerrarConexion();
             }
         }
+        public bool usado(string voucher)
+        {
+            int a = 0;
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT IdCliente FROM Vouchers where CodigoVoucher = @CodigoVoucher");
+                datos.Comando.Parameters.AddWithValue("@CodigoVoucher", voucher);
+                datos.EjecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    try
+                    {
+                        a = datos.Lector.GetInt32(0);
+                    }
+                    catch (Exception ex)
+                    {
+
+                        a = 0;
+                    }
+                    
+                }
+                if(a>0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public bool buscar(string voucher)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -71,79 +116,107 @@ namespace negocio
             }
         }
 
-        public void agregar(string descripcion)
+        public void Editar(Voucher voucher)
         {
             AccesoDatos datos = new AccesoDatos();
+
             try
             {
-                datos.setearConsulta("INSERT INTO VoucherS(Descripcion) VALUES(@Descripcion)");
-                datos.Comando.Parameters.AddWithValue("@Descripcion", descripcion);
-                datos.EjecutarLectura();
-                datos.Lector.Read();
+                datos.setearConsulta("UPDATE Vouchers SET IdCliente = @idCliente, FechaCanje = @fechaCanje, IdArticulo = @idArticulo WHERE CodigoVoucher = @codigoVoucher");
+
+                datos.Comando.Parameters.AddWithValue("@idCliente", voucher.idCliente);
+                datos.Comando.Parameters.AddWithValue("@fechaCanje", voucher.fechaCanje);
+                datos.Comando.Parameters.AddWithValue("@idArticulo", voucher.idArticulo);
+                datos.Comando.Parameters.AddWithValue("@codigoVoucher", voucher.codigoVoucher);
+
+                datos.EjecutarAccion();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error SQL: " + ex.Message);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
                 datos.CerrarConexion();
             }
         }
+        //public void agregar(string descripcion)
+        //{
+        //    AccesoDatos datos = new AccesoDatos();
+        //    try
+        //    {
+        //        datos.setearConsulta("INSERT INTO VoucherS(Descripcion) VALUES(@Descripcion)");
+        //        datos.Comando.Parameters.AddWithValue("@Descripcion", descripcion);
+        //        datos.EjecutarLectura();
+        //        datos.Lector.Read();
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-        public void borrar(int id)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.setearConsulta("DELETE FROM VoucherS WHERE ID = @Id");
-                datos.Comando.Parameters.AddWithValue("@Id", id);
-                datos.EjecutarLectura();
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        datos.CerrarConexion();
+        //    }
+        //}
 
-            }
-            catch (Exception ex)
-            {
+        //public void borrar(int id)
+        //{
+        //    AccesoDatos datos = new AccesoDatos();
+        //    try
+        //    {
+        //        datos.setearConsulta("DELETE FROM VoucherS WHERE ID = @Id");
+        //        datos.Comando.Parameters.AddWithValue("@Id", id);
+        //        datos.EjecutarLectura();
 
-                throw ex;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-        public bool checkBorrar(int id)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            try
-            {
-                datos.setearConsulta("SELECT COUNT(*) AS cantidad FROM ARTICULOS WHERE IdVoucher = @Id");
-                datos.Comando.Parameters.AddWithValue("@Id", id);
-                datos.EjecutarLectura();
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        datos.CerrarConexion();
+        //    }
+        //}
 
-                datos.Lector.Read();
+        //public bool checkBorrar(int id)
+        //{
+        //    AccesoDatos datos = new AccesoDatos();
+        //    try
+        //    {
+        //        datos.setearConsulta("SELECT COUNT(*) AS cantidad FROM ARTICULOS WHERE IdVoucher = @Id");
+        //        datos.Comando.Parameters.AddWithValue("@Id", id);
+        //        datos.EjecutarLectura();
 
-                if ((int)datos.Lector["cantidad"] > 0)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+        //        datos.Lector.Read();
 
-            }
-            catch (Exception)
-            {
+        //        if ((int)datos.Lector["cantidad"] > 0)
+        //        {
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            return true;
+        //        }
 
-                return false;
-            }
-            finally
-            {
-                datos.CerrarConexion();
-            }
+        //    }
+        //    catch (Exception)
+        //    {
 
-        }
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        datos.CerrarConexion();
+        //    }
+
+        //}
     }
 }

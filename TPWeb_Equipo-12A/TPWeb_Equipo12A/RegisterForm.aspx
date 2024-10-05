@@ -11,62 +11,61 @@
                     <asp:TableCell>
                         <div class="mb-3">
                             <label for="inpDni" class="form-label">DNI</label>
-                            <input type="number" class="form-control" id="inpDni" placeholder="XXXXXXXX">
+                            <asp:TextBox TextMode="Number" ID="inpDni" runat="server" OnTextChanged="inpDni_TextChanged" AutoPostBack="true" CssClass="form-control"  placeholder="XXXXXXXX"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                     <asp:TableCell>
-                        <div class="mb-3">
-                        </div>
-                    </asp:TableCell>
+                    <div class="mb-3"></div>
+                </asp:TableCell>
                     <asp:TableCell>
-                        <div class="mb-3">
-                        </div>
-                    </asp:TableCell>
+                    <div class="mb-3"></div>
+                </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <div class="mb-3">
                             <label for="inpNombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="inpNombre" placeholder="Juan">
+                            <asp:TextBox TextMode="SingleLine" ID="inpNombre" runat="server" CssClass="form-control" placeholder="Juan"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                     <asp:TableCell>
                         <div class="mb-3">
                             <label for="inpApellido" class="form-label">Apellido</label>
-                            <input type="email" class="form-control" id="inpApellido" placeholder="Solis">
+                            <asp:TextBox TextMode="SingleLine" ID="inpApellido" runat="server" CssClass="form-control" placeholder="Solis"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                     <asp:TableCell>
-                       <div class="mb-3">
-                          <label for="inpEmail" class="form-label">Email</label>
-                          <div class="input-group">
-                            <span class="input-group-text" id="basic-addon3">@</span>
-                            <input type="email" class="form-control" id="inpEmail" placeholder="name@example.com" aria-describedby="basic-addon3 basic-addon4">
-                          </div>
+                        <div class="mb-3">
+                            <label for="inpEmail" class="form-label">Email</label>
+                            <asp:TextBox TextMode="Email" ID="inpEmail" runat="server" CssClass="form-control" placeholder="name@example.com"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
                         <div class="mb-3">
-                            <label for="inpDireccion" class="form-label">Direccion</label>
-                            <input type="email" class="form-control" id="inpDireccion" placeholder="Av. Siempre Viva 123">
+                            <label for="inpDireccion" class="form-label">Dirección</label>
+                            <asp:TextBox TextMode="SingleLine" ID="inpDireccion" runat="server" CssClass="form-control" placeholder="Av. Siempre Viva 123"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                     <asp:TableCell>
                         <div class="mb-3">
                             <label for="inpCiudad" class="form-label">Ciudad</label>
-                            <input type="email" class="form-control" id="inpCiudad" placeholder="Springfield">
+                            <asp:TextBox TextMode="SingleLine" ID="inpCiudad" runat="server" CssClass="form-control" placeholder="Springfield"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                     <asp:TableCell>
                         <div class="mb-3">
-                            <label for="inpCP" class="form-label">Codigo Postal</label>
-                            <input type="email" class="form-control" id="inpCP" placeholder="XXXX">
+                            <label for="inpCP" class="form-label">Código Postal</label>
+                            <asp:TextBox TextMode="Number" ID="inpCP" runat="server" CssClass="form-control" placeholder="XXXX"></asp:TextBox>
                         </div>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
+            <div class="form-group">
+                <asp:CheckBox ID="chkAceptoTerminos" runat="server" Text="Acepto los términos y condiciones" />
+                <asp:Button ID="btnAceptar" runat="server" CssClass="btn btn-outline-primary" Text="ACEPTAR" OnClick="btnAceptar_Click" />
+            </div>
         </div>
     </div>
 </asp:Content>
