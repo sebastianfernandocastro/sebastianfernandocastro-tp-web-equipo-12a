@@ -28,7 +28,7 @@ namespace TPWeb_Equipo12A
             }
             else
             {
-                script = "alert('" + "El voucher es incorrecto o esta utilizado." + "');";
+                script = "alert('" + "El voucher es incorrecto o ya fue utilizado." + "');";
                 txbVoucher.Text = string.Empty;
             }
 

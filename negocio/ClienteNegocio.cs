@@ -51,7 +51,7 @@ namespace negocio
         //    //}
         //}
 
-        public Cliente buscarCliente(int dni)
+        public Cliente buscarCliente(string dni)
         {
             Cliente cliente = new Cliente();
             AccesoDatos datos = new AccesoDatos();

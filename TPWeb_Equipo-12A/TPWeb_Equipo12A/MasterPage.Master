@@ -12,7 +12,7 @@
     <link href="StyleDatos.css" rel="stylesheet" />
 </head>
 <body>
-    <header class="header">
+    <header class="header" runat="server">
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="Default.aspx">CompumundoHiperMegaRed</a>
@@ -24,9 +24,8 @@
                     </ul>
                     <ul class="navbar-nav nav-pills" data-bs-theme="dark" >
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">INGRESAR</a>
+                            <button id="btnIngresar" runat="server" class="btn btn-primary btn-sm"  onserverclick="BtnIngresar_Click">INGRESAR</button>
                         </li>
-
                     </ul>
                 </div>
             </div>

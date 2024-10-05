@@ -71,8 +71,8 @@
     <Content Include="Global.asax" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="SelectGift.aspx" />
-    <Content Include="StyleDatos.css" />
-    <Content Include="StyleVoucher.css" />
+    <Content Include="styles\StyleDatos.css" />
+    <Content Include="styles\StyleVoucher.css" />
     <Content Include="VoucherCheck.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

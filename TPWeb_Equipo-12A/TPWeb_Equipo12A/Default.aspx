@@ -29,7 +29,11 @@
                 <h5>Completa el formulario y listo ya estas participando.</h5>
             </div>
         </div>
-
     </div>
-
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.pushState(null, null, location.href);
+        };
+    </script>
 </asp:Content>
