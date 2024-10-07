@@ -167,7 +167,7 @@ namespace TPWeb_Equipo12A
                         herramientas.enviarMail(cliente.email, cliente.nombre);
                     }
 
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("Congratulations.aspx");
                 }
                 else
                 {
